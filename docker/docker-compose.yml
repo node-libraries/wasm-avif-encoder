@@ -1,0 +1,13 @@
+version: '3.7'
+services:
+  emcc:
+    container_name: wasm-avif-encoder
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    volumes:
+      - /app
+      - /emsdk/upstream/emscripten/cache
+      - ../Makefile:/app/Makefile
+      - ../src:/app/src
+      - ../dist:/app/dist

@@ -1,0 +1,44 @@
+{
+  "name": "@node-libraries/wasm-avif-encoder",
+  "description": "WebAssembly avif encoder with WebWorker support.",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "ts-node test",
+    "build": "tsc -b && yarn build:worker",
+    "build:worker": "yarn esbuild --bundle --format=esm --target=esnext src/worker.ts --external:./avif.js --outfile=dist/worker.js",
+    "build:wasm": "docker compose -f docker/docker-compose.yml run emcc make",
+    "docker:shell": "docker compose -f docker/docker-compose.yml run --build emcc bash -l",
+    "lint:fix": "eslint --fix src/ && prettier -w src"
+  },
+  "dependencies": {
+    "worker-lib": "^1.0.1"
+  },
+  "devDependencies": {
+    "@types/node": "^20.11.17",
+    "@typescript-eslint/eslint-plugin": "^7.0.1",
+    "@typescript-eslint/parser": "^7.0.1",
+    "esbuild": "^0.20.0",
+    "eslint": "^8.56.0",
+    "eslint-config-prettier": "^9.1.0",
+    "prettier": "^3.2.5",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.3.3"
+  },
+  "type": "module",
+  "publishConfig": {
+    "access": "public"
+  },
+  "author": "SoraKumo",
+  "keywords": [
+    "avif",
+    "encode",
+    "wasm",
+    "worker",
+    "WebAssembly",
+    "WebWorker"
+  ],
+  "types": "./dist/index.d.ts",
+  "repository": "https://github.com/node-libraries/wasm-avif-encoder"
+}

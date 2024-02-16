@@ -1,0 +1,10 @@
+/node_modules
+/src
+/test
+/libwebp
+tsconfig.json
+.eslintrc.json
+.prettierrc
+.gitignore
+Makefile
+/docker
