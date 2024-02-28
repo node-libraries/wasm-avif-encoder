@@ -14,7 +14,7 @@ CFLAGS = -O3 -msimd128 \
 
 CFLAGS_ASM = --bind \
              -s WASM=1 -s ALLOW_MEMORY_GROWTH=1 -s ENVIRONMENT=web -s DYNAMIC_EXECUTION=0 -s MODULARIZE=1 \
-             -s USE_SDL=2 -s USE_SDL_IMAGE=2 -s USE_SDL_GFX=2 -s STACK_SIZE=5MB \
+             -s STACK_SIZE=5MB \
 
 AVIF_SOURCES := libavif/src/alpha.c \
                 libavif/src/avif.c \

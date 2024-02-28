@@ -26,7 +26,7 @@ val encode(std::string img_in, int width, int height, float quality)
   }
   avifEncoder *encoder = avifEncoderCreate();
   encoder->quality = (int)((quality) / 100 * 63);
-  encoder->speed = AVIF_SPEED_FASTEST;
+  encoder->speed = 6;
 
   avifRWData raw = AVIF_DATA_EMPTY;
 
